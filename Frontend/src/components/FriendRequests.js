@@ -10,7 +10,7 @@ const FriendRequests = () => {
     const fetchRequests = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/api/requests/${userId}`
+          `https://celebrated-harmony-production.up.railway.app/api/requests/${userId}`
         )
         setRequests(response.data)
       } catch (error) {
@@ -24,7 +24,7 @@ const FriendRequests = () => {
   const handleRequestAction = async (requestId, action) => {
     try {
       await axios.patch(
-        `http://localhost:8080/api/requests/${userId}/${requestId}?action=${action}`
+        `https://celebrated-harmony-production.up.railway.app/api/requests/${userId}/${requestId}?action=${action}`
       )
       setRequests(requests.filter(request => request.requestId !== requestId))
     } catch (error) {

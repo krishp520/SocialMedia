@@ -29,9 +29,9 @@ const Admin = () => {
             setIsAdmin(true);
             const fetchUsers = async () => {
                 try {
-                    const pendingResponse = await axios.get('http://localhost:8080/api/admin/pending-approvals');
+                    const pendingResponse = await axios.get('https://celebrated-harmony-production.up.railway.app/api/admin/pending-approvals');
                     setPendingUsers(pendingResponse.data);
-                    const approvedResponse = await axios.get('http://localhost:8080/api/admin/approved-users');
+                    const approvedResponse = await axios.get('https://celebrated-harmony-production.up.railway.app/api/admin/approved-users');
                     setApprovedUsers(approvedResponse.data);
                 } catch (error) {
                     console.error(error);
@@ -47,7 +47,7 @@ const Admin = () => {
 
     const handleApprove = async (userId) => {
         try {
-            await axios.post(`http://localhost:8080/api/admin/approve/${userId}`);
+            await axios.post(`https://celebrated-harmony-production.up.railway.app/api/admin/approve/${userId}`);
             setPendingUsers(prev => prev.filter(user => user.userId !== userId));
             const approvedUser = pendingUsers.find(user => user.userId === userId);
             setApprovedUsers(prev => [...prev, approvedUser]);
@@ -58,7 +58,7 @@ const Admin = () => {
 
     const handleReject = async (userId) => {
         try {
-            await axios.delete(`http://localhost:8080/api/admin/reject/${userId}`);
+            await axios.delete(`https://celebrated-harmony-production.up.railway.app/api/admin/reject/${userId}`);
             setPendingUsers(prev => prev.filter(user => user.userId !== userId));
         } catch (error) {
             console.error(error);
@@ -67,7 +67,7 @@ const Admin = () => {
 
     const handleDelete = async (userId) => {
         try {
-            await axios.delete(`http://localhost:8080/api/admin/delete/${userId}`);
+            await axios.delete(`https://celebrated-harmony-production.up.railway.app/api/admin/delete/${userId}`);
             setApprovedUsers(prev => prev.filter(user => user.userId !== userId));
         } catch (error) {
             console.error(error);
@@ -76,7 +76,7 @@ const Admin = () => {
 
     const handleRoleChange = async (userId) => {
         try {
-            await axios.put(`http://localhost:8080/api/admin/update-role/${userId}?role=${newRole}`);
+            await axios.put(`https://celebrated-harmony-production.up.railway.app/api/admin/update-role/${userId}?role=${newRole}`);
             setApprovedUsers(prev => prev.map(user => user.userId === userId ? { ...user, role: newRole } : user));
             setEditRoleUserId(null);
             setNewRole('USER');
@@ -96,7 +96,7 @@ const Admin = () => {
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:8080/api/admin/create-user', formData);
+            await axios.post('https://celebrated-harmony-production.up.railway.app/api/admin/create-user', formData);
             alert('User created successfully!');
             setFormData({
                 firstName: '',

@@ -27,7 +27,7 @@ const CreateGroup = () => {
         };
     
         try {
-            await axios.post(`http://localhost:8080/api/groups/create/${currentUser.userId}`, groupData);
+            await axios.post(`https://celebrated-harmony-production.up.railway.app/api/groups/create/${currentUser.userId}`, groupData);
     
             // Display confirmation dialog
             const userChoice = window.confirm('Successfully created! Click OK to go to the groups page or Cancel to create another group.');

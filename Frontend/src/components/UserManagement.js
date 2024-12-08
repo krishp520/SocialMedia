@@ -15,7 +15,7 @@ const UserManagement = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/users/${userId}`)
+        const response = await axios.get(`https://celebrated-harmony-production.up.railway.app/api/users/${userId}`)
         setUser(response.data)
       } catch (error) {
         console.error("Error fetching user data:",error.response ? error.response.data : error.message)
@@ -32,7 +32,7 @@ const UserManagement = () => {
 
   const handleSubmit = async () => {
     try {
-      await axios.patch(`http://localhost:8080/api/users/${userId}`, user)
+      await axios.patch(`https://celebrated-harmony-production.up.railway.app/api/users/${userId}`, user)
       alert('User updated successfully!')
     } catch (error) {
       console.error(error)

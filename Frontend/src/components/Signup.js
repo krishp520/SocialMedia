@@ -70,7 +70,7 @@ const SignUp = () => {
 
     if (validateForm()) {
       try {
-        const response = await axios.post('http://localhost:8080/api/users/signup', formData);
+        const response = await axios.post('https://celebrated-harmony-production.up.railway.app/api/users/signup', formData);
 
         if (response.status === 200) {
           console.log(response.data);

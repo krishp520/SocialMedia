@@ -22,7 +22,7 @@ const CurrentGroup = () => {
     useEffect(() => {
         const fetchGroupDetails = async () => {
             try {
-                const response = await axios.get(`http://localhost:8080/api/groups/${groupId}`);
+                const response = await axios.get(`https://celebrated-harmony-production.up.railway.app/api/groups/${groupId}`);
                 setGroup(response.data);
                 setInterests(response.data.interests || '');
             } catch (error) {
@@ -32,7 +32,7 @@ const CurrentGroup = () => {
 
         const fetchGroupMembers = async () => {
             try {
-                const response = await axios.get(`http://localhost:8080/api/groups/${groupId}/members`);
+                const response = await axios.get(`https://celebrated-harmony-production.up.railway.app/api/groups/${groupId}/members`);
                 setMembers(response.data);
             } catch (error) {
                 console.error('Error fetching group members:', error);
@@ -47,7 +47,7 @@ const CurrentGroup = () => {
 
     const updateInterests = async () => {
         try {
-            const response = await axios.put(`http://localhost:8080/api/groups/${groupId}/interests`, { interests });
+            const response = await axios.put(`https://celebrated-harmony-production.up.railway.app/api/groups/${groupId}/interests`, { interests });
             setGroup({ ...group, interests: response.data });
             alert('Interests updated successfully');
         } catch (error) {
@@ -57,7 +57,7 @@ const CurrentGroup = () => {
 
     const updateIsPrivate = async (isPrivate) => {
         try {
-            const response = await axios.put(`http://localhost:8080/api/groups/${groupId}/updateType`, {
+            const response = await axios.put(`https://celebrated-harmony-production.up.railway.app/api/groups/${groupId}/updateType`, {
                 isPrivate: isPrivate
             });
             setGroup({ ...group, isPrivate: response.data.isPrivate });
@@ -69,7 +69,7 @@ const CurrentGroup = () => {
     const removeMember = async (memberId) => {
         if (window.confirm('Are you sure you want to remove this member?')) {
             try {
-                await axios.delete(`http://localhost:8080/api/groups/${groupId}/members/${memberId}`);
+                await axios.delete(`https://celebrated-harmony-production.up.railway.app/api/groups/${groupId}/members/${memberId}`);
                 setMembers(members.filter(member => member.id !== memberId));
                 alert('Member has been removed');
             } catch (error) {

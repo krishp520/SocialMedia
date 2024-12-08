@@ -19,13 +19,13 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchPostsAndUsers = async () => {
       try {
-        const postsResponse = await axios.get('http://localhost:8080/api/posts')
+        const postsResponse = await axios.get('https://celebrated-harmony-production.up.railway.app/api/posts')
         setFriendsPosts(postsResponse.data)
 
-        const usersResponse = await axios.get(`http://localhost:8080/api/users/getOther/${currentUser.userId}`)
+        const usersResponse = await axios.get(`https://celebrated-harmony-production.up.railway.app/api/users/getOther/${currentUser.userId}`)
         setUsers(usersResponse.data)
 
-        const commentsResponse = await axios.get('http://localhost:8080/api/comments')
+        const commentsResponse = await axios.get('https://celebrated-harmony-production.up.railway.app/api/comments')
         const groupedComments = commentsResponse.data.reduce((acc, comment) => {
           const postId = comment.post.postId
           if (!acc[postId]) {
@@ -45,7 +45,7 @@ const Dashboard = () => {
 
   const handleAddFriend = async friendId => {
     try {
-      const response = await axios.post('http://localhost:8080/api/requests', {
+      const response = await axios.post('https://celebrated-harmony-production.up.railway.app/api/requests', {
         sender: { userId: currentUser.userId },
         receiver: { userId: friendId }
       })
@@ -63,7 +63,7 @@ const Dashboard = () => {
 
   const handleSendComment = async postId => {
     try {
-      const response = await axios.post('http://localhost:8080/api/comments', {
+      const response = await axios.post('https://celebrated-harmony-production.up.railway.app/api/comments', {
         post: { postId },
         user: { userId: currentUser.userId },
         content: newComments[postId]
@@ -94,7 +94,7 @@ const Dashboard = () => {
 
   const handleSendPost = async () => {
     try {
-      const response = await axios.post('http://localhost:8080/api/posts', {
+      const response = await axios.post('https://celebrated-harmony-production.up.railway.app/api/posts', {
         user: { userId: currentUser.userId },
         content: newPostContent
       })

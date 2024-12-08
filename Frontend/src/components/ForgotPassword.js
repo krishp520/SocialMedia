@@ -68,7 +68,7 @@ const ForgotPassword = () => {
 
     if (validateForm()) {
       try {
-        const response = await axios.post('http://localhost:8080/api/users/reset-password', {
+        const response = await axios.post('https://celebrated-harmony-production.up.railway.app/api/users/reset-password', {
           email: formData.email,
           securityAnswer: formData.securityAnswer,
           password: formData.newPassword

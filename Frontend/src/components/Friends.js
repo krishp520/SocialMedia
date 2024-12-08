@@ -13,7 +13,7 @@ const Friends = () => {
     const fetchFriends = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/api/friends/all/${userId}`
+          `https://celebrated-harmony-production.up.railway.app/api/friends/all/${userId}`
         )
         
         // Ensure userId and friend IDs are strings for comparison
@@ -32,7 +32,7 @@ const Friends = () => {
   const handleRemoveFriend = async friendId => {
     try {
       await axios.delete(
-        `http://localhost:8080/api/friends/${userId}/${friendId}`
+        `https://celebrated-harmony-production.up.railway.app/api/friends/${userId}/${friendId}`
       )
       setFriends(friends.filter(friend => friend.friend.userId !== friendId))
     } catch (error) {

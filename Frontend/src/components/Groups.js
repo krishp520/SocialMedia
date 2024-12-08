@@ -22,10 +22,10 @@ const Groups = () => {
     useEffect(() => {
         const fetchAllGroups = async () => {
             try {
-                const Response = await axios.get('http://localhost:8080/api/groups/all')
+                const Response = await axios.get('https://celebrated-harmony-production.up.railway.app/api/groups/all')
                 setAllGroups(Response.data)
 
-                const userGroupsResponse = await axios.get(`http://localhost:8080/api/groups/user/${currentUser.userId}`)
+                const userGroupsResponse = await axios.get(`https://celebrated-harmony-production.up.railway.app/api/groups/user/${currentUser.userId}`)
                 setUserGroups(userGroupsResponse.data)
             } catch (error) {
                 console.error('Error fetching groups data:', error)
@@ -37,13 +37,13 @@ const Groups = () => {
 
     const handleJoinRequest = async groupId => {
         try {
-            await axios.post(`http://localhost:8080/api/groups/${groupId}/join?userId=${currentUser.userId}`)
+            await axios.post(`https://celebrated-harmony-production.up.railway.app/api/groups/${groupId}/join?userId=${currentUser.userId}`)
             
             // Update group data after joining
-            const updatedAllGroups = await axios.get('http://localhost:8080/api/groups/all')
+            const updatedAllGroups = await axios.get('https://celebrated-harmony-production.up.railway.app/api/groups/all')
             setAllGroups(updatedAllGroups.data)
 
-            const updatedUserGroups = await axios.get(`http://localhost:8080/api/groups/user/${currentUser.userId}`)
+            const updatedUserGroups = await axios.get(`https://celebrated-harmony-production.up.railway.app/api/groups/user/${currentUser.userId}`)
             setUserGroups(updatedUserGroups.data)
 
             alert('Joined the group successfully!')
@@ -71,10 +71,10 @@ const Groups = () => {
 
     const fetchGroupDetails = async (groupId) => {
         try {
-            const groupResponse = await axios.get(`http://localhost:8080/api/groups/${groupId}`)
+            const groupResponse = await axios.get(`https://celebrated-harmony-production.up.railway.app/api/groups/${groupId}`)
             setSelectedGroup(groupResponse.data)
 
-            const membersResponse = await axios.get(`http://localhost:8080/api/groups/${groupId}/members`)
+            const membersResponse = await axios.get(`https://celebrated-harmony-production.up.railway.app/api/groups/${groupId}/members`)
             setGroupMembers(membersResponse.data)
         } catch (error) {
             console.error('Error fetching group details:', error)
