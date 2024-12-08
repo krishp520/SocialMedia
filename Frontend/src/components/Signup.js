@@ -39,14 +39,14 @@ const SignUp = () => {
 
     // Email validation
     if (formData.email && !isValidEmail(formData.email)) {
-      formErrors.email = 'Email must end with @dal.ca';
+      formErrors.email = 'Not a valid email address';
     }
 
     // Password validation (example: at least 8 characters, one uppercase, one lowercase, one number)
     if (formData.password) {
-      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+[\]{}|;:'",.<>?/\\-]).{8,}$/;
       if (!passwordRegex.test(formData.password)) {
-        formErrors.password = 'Password must be at least 8 characters, include an uppercase letter, a lowercase letter, and a number';
+        formErrors.password = 'Password must be at least 8 characters, include an uppercase letter, a lowercase letter, a number and a special character';
       }
     }
 
@@ -60,10 +60,10 @@ const SignUp = () => {
   };
 
   const isValidEmail = (email) => {
-    // Email validation to ensure it ends with @dal.ca
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email) && email.endsWith('@dal.ca');
-  };
+    // Email validation
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+  };  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
