@@ -26,12 +26,7 @@ public class UserService {
         if (user.getPassword() == null || user.getPassword().isEmpty()) {
             throw new IllegalArgumentException("Password cannot be null or empty");
         }
-
-        // Assuming 'role' field determines if the user is an admin
-        if ("admin".equalsIgnoreCase(user.getRole())) {
-            user.setApproved(true);
-        }
-
+        user.setApproved(true);
         return userRepository.save(user);
     }
 

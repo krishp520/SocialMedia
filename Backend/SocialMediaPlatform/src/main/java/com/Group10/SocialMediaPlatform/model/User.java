@@ -55,7 +55,7 @@ public class User {
     private LocalDateTime updatedAt;
 
     @Column(nullable = false)
-    private boolean approved = false;
+    private boolean approved = true;
 
     @Column(nullable = false)
     private boolean deleted = false;
