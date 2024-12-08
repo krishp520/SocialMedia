@@ -1,0 +1,36 @@
+
+
+.friend-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.friend-items {
+    flex: 1 1;
+    box-sizing: border-box;
+}
+
+.friend {
+    border: 1px solid #ddd;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+
+.friend-action {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.friend-action button {
+    background-color: #333333;
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+

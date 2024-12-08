@@ -1,0 +1,104 @@
+/* Dashboard.css */
+
+.dashboard-container {
+    max-width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .create-post input {
+    width: 80%;
+    padding: 10px;
+    margin-right: 20px;
+    border: 1px solid #333333;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .post-button {
+    padding: 10px 20px;
+    background-color: #333333;
+    color: #f9f9f9;
+    cursor: pointer;
+  }
+  
+  .search-bar {
+    margin: 20px 20px 20px 0px;
+  }
+  
+  .search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #333333;
+    border-radius: 10px;
+  }
+  
+  .display-section {
+    display: flex;
+    gap: 40px;
+  }
+  
+  .display-content {
+    flex: auto;
+  }
+  
+  .recomment-friends {
+    flex: auto;
+  }
+  
+  .posts {
+    background-color: #f9f9f9;
+    border: 1px solid #333333;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+  
+  .friends {
+    background-color: #f9f9f9;
+    border: 1px solid #333333;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+  
+  .comment {
+    border-top: 1px solid #333333;
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+  
+  .comment-action {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .comment-action input {
+    flex: auto;
+    padding: 10px;
+    border: 1px solid #333333;
+    border-radius: 10px;
+  }
+  
+  .comment-action button {
+    background-color: #333333;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .add-friend {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .add-friend button {
+    background-color: #333333;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+  }
+  

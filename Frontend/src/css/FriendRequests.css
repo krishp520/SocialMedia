@@ -1,0 +1,42 @@
+.friend-request-container {
+    padding: 20px;
+}
+
+.friend-request-container h1 {
+    margin-bottom: 20px;
+}
+
+.list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+}
+
+.list-item-content {
+    flex: 1;
+    font-size: 14pt;
+}
+
+.list-item button {
+    background-color: #333333;
+    color: white;
+    width: 35%;
+    padding: 10px 15px;
+    cursor: pointer;
+    border: none;
+    margin-left: 10px;
+}
+
+.list-item button:first-of-type {
+    margin-left: 0;
+}
